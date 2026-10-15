@@ -7,7 +7,7 @@ export const TEST_NAME = "Test User";
 
 const DB_URL =
   process.env.DATABASE_URL ??
-  "postgresql://postgres:postgres@localhost:5433/npm_trend_clone";
+  "postgresql://postgres:postgres@localhost:54321/npm_trend_clone";
 
 /**
  * Logs in the seed test user via the login page UI.
@@ -33,7 +33,7 @@ export async function loginViaAPI(request: APIRequestContext) {
 }
 
 const AUTH_HEADERS = {
-  Origin: "http://localhost:3000",
+  Origin: "http://localhost:3041",
   "Content-Type": "application/json",
 };
 

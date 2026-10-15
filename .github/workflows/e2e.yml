@@ -16,7 +16,7 @@ jobs:
       postgres:
         image: postgres:16-alpine
         ports:
-          - 5433:5432
+          - 54321:5432
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
@@ -60,7 +60,7 @@ jobs:
         env:
           APP_ENV: test
           NEXT_PUBLIC_ENABLE_MSW_MOCK: 'true'
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5433/npm_trend_clone
+          DATABASE_URL: postgresql://postgres:postgres@localhost:54321/npm_trend_clone
           BETTER_AUTH_SECRET: ci_test_secret_key_for_testing_only
           GITHUB_CLIENT_ID: ci_test_github_client_id
           GITHUB_CLIENT_SECRET: ci_test_github_client_secret

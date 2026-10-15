@@ -1,11 +1,11 @@
 import { execSync } from "child_process";
 
 const LOCAL_DB_URL =
-  "postgresql://postgres:postgres@localhost:5433/npm_trend_clone";
+  "postgresql://postgres:postgres@localhost:54321/npm_trend_clone";
 
 /**
  * Playwright global setup: ensures DB schema is current and seed data exists.
- * Requires Docker Compose PostgreSQL running on port 5433.
+ * Requires Docker Compose PostgreSQL running on port 54321.
  */
 export default async function globalSetup() {
   const env = {

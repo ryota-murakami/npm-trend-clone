@@ -67,7 +67,7 @@ docker compose up -d
 ```
 
 This starts:
-- **PostgreSQL** (port 5433) - Local database
+- **PostgreSQL** (port 54321) - Local database
 - **Redis** (port 6379) - Cache backend
 - **SRH** (port 8079) - Upstash-compatible Redis HTTP API ([Serverless Redis HTTP](https://github.com/hiett/serverless-redis-http))
 
@@ -81,7 +81,7 @@ Edit `.env.local` with your configuration. For local development with Docker:
 
 ```env
 # Database - Local PostgreSQL
-DATABASE_URL=postgresql://postgres:postgres@localhost:5433/npm_trend_clone?schema=public
+DATABASE_URL=postgresql://postgres:postgres@localhost:54321/npm_trend_clone?schema=public
 
 # Redis - Local SRH (Upstash-compatible)
 UPSTASH_REDIS_REST_URL=http://localhost:8079
@@ -118,13 +118,13 @@ This creates a test account for local development:
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the application.
+Open [http://localhost:3041](http://localhost:3041) to view the application.
 
 ### Docker Compose Services
 
 | Service | Port | Description |
 |---------|------|-------------|
-| `postgres` | 5433 | PostgreSQL 16 database |
+| `postgres` | 54321 | PostgreSQL 16 database |
 | `redis` | 6379 | Redis 7 cache server |
 | `redis-http` | 8079 | [SRH](https://github.com/hiett/serverless-redis-http) - Upstash REST API compatible proxy |
 
@@ -134,9 +134,9 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 | Command | Description |
 |---------|-------------|
-| `pnpm dev` | Start development server with Turbopack |
+| `pnpm dev` | Start development server with Turbopack on port 3041 |
 | `pnpm build` | Build for production |
-| `pnpm start` | Start production server |
+| `pnpm start` | Start production server on port 3041 |
 | `pnpm lint` | Run ESLint |
 | `pnpm typecheck` | Run TypeScript type checking |
 | `pnpm test` | Run unit tests with Vitest |
@@ -194,8 +194,8 @@ To enable "Sign in with GitHub":
 1. Go to **GitHub → Settings → Developer settings → OAuth Apps → New OAuth App**
 2. Fill in:
    - **Application name**: `npm-trend-clone` (or your preferred name)
-   - **Homepage URL**: `http://localhost:3000` (local) or your production URL
-   - **Authorization callback URL**: `http://localhost:3000/api/auth/callback/github`
+   - **Homepage URL**: `http://localhost:3041` (local) or your production URL
+   - **Authorization callback URL**: `http://localhost:3041/api/auth/callback/github`
 3. After creating, copy the **Client ID** and generate a **Client Secret**
 4. Add to `.env.local`:
    ```env

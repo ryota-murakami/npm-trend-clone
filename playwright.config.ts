@@ -15,7 +15,7 @@ export default defineConfig({
   timeout: 30000,
 
   use: {
-    baseURL: "http://localhost:3000",
+    baseURL: "http://localhost:3041",
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     video: "retain-on-failure",
@@ -35,12 +35,12 @@ export default defineConfig({
 
   webServer: {
     command: "pnpm start:e2e",
-    url: "http://localhost:3000",
+    url: "http://localhost:3041",
     reuseExistingServer: !process.env.CI,
     timeout: 60000,
     env: {
       DATABASE_URL:
-        "postgresql://postgres:postgres@localhost:5433/npm_trend_clone",
+        "postgresql://postgres:postgres@localhost:54321/npm_trend_clone",
       RESEND_API_KEY: "",
     },
   },

@@ -44,13 +44,14 @@ export const auth = betterAuth({
     process.env.BETTER_AUTH_URL ||
     (process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000"),
+      : "http://localhost:3041"),
 
   /**
    * Trusted origins for CORS and security.
    * Includes localhost for development and Vercel domains for production.
    */
   trustedOrigins: [
+    "http://localhost:3041",
     "http://localhost:3000",
     "http://localhost:3001",
     "http://localhost:3002",
