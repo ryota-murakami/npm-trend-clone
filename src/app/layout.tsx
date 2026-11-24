@@ -13,7 +13,13 @@ import "./globals.css";
  *
  * Important: Uses require() instead of import for synchronous top-level execution
  */
-if (process.env.NEXT_RUNTIME === "nodejs" && isMSWEnabled()) {
+if (
+  process.env.NEXT_RUNTIME === "nodejs" &&
+  // Page-data collection workers bundle this file at build time; msw 3
+  // crashes there with a cross-realm URL passed to node:fs.
+  process.env.NEXT_PHASE !== "phase-production-build" &&
+  isMSWEnabled()
+) {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { server } = require("../../mocks/server");
   server.listen({ onUnhandledFrame: "bypass" });
