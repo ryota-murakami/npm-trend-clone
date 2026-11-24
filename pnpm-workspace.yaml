@@ -1,5 +1,8 @@
 packages: []
 
+# Match the CI Safe Chain 48h minimum package age.
+minimumReleaseAge: 2880
+
 onlyBuiltDependencies:
   - '@prisma/engines'
   - '@sentry/cli'
@@ -9,8 +12,3 @@ onlyBuiltDependencies:
   - prisma
   - sharp
   - unrs-resolver
-overrides:
-  # Safe Chain minimum-age: latest releases younger than 48h are blocked in CI
-  '@types/node': 25.9.9
-  '@types/react': 19.3.0
-  '@sentry/nextjs': 11.16.0
