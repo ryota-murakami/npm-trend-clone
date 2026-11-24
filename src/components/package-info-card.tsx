@@ -1,6 +1,7 @@
 "use client";
 
-import { ExternalLink, Github, Star, Download, Calendar, Scale, X } from "lucide-react";
+import { ExternalLink, Star, Download, Calendar, Scale, X } from "lucide-react";
+import { GithubIcon } from "@/components/icons/github-icon";
 import {
   Card,
   CardHeader,
@@ -176,7 +177,7 @@ export function PackageInfoCard({
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 min-h-[44px] px-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
             >
-              <Github className="h-3.5 w-3.5" />
+              <GithubIcon className="h-3.5 w-3.5" />
               GitHub
             </a>
           )}

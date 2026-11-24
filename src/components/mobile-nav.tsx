@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, Github, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
+import { GithubIcon } from "@/components/icons/github-icon";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 
@@ -65,7 +66,7 @@ export function MobileNav() {
               role="menuitem"
               onClick={closeMenu}
             >
-              <Github className="h-4 w-4" aria-hidden="true" />
+              <GithubIcon className="h-4 w-4" aria-hidden="true" />
               GitHub
             </a>
 

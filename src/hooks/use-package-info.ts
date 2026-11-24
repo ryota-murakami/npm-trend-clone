@@ -35,8 +35,7 @@ export function usePackageInfo(packageNames: string[]) {
     }
 
     if (!packagesKey) {
-      setData({});
-      setIsLoading(false);
+      // Empty state is derived at the return site; no fetch needed
       return;
     }
 
@@ -88,5 +87,9 @@ export function usePackageInfo(packageNames: string[]) {
     };
   }, [packagesKey]);
 
-  return { data, isLoading, error };
+  return {
+    data: packagesKey ? data : {},
+    isLoading: packagesKey ? isLoading : false,
+    error,
+  };
 }

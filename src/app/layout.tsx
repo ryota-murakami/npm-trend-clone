@@ -16,7 +16,7 @@ import "./globals.css";
 if (process.env.NEXT_RUNTIME === "nodejs" && isMSWEnabled()) {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { server } = require("../../mocks/server");
-  server.listen({ onUnhandledRequest: "bypass" });
+  server.listen({ onUnhandledFrame: "bypass" });
 }
 
 const geistSans = Geist({

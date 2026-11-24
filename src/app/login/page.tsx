@@ -3,7 +3,8 @@
 import { useState, useCallback, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Eye, EyeOff, Github } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
+import { GithubIcon } from "@/components/icons/github-icon";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -248,7 +249,7 @@ function LoginContent() {
             onClick={() => handleOAuthLogin("github")}
             disabled={isLoading}
           >
-            <Github className="mr-2 h-4 w-4" />
+            <GithubIcon className="mr-2 h-4 w-4" />
             Continue with GitHub
           </Button>
         </CardContent>

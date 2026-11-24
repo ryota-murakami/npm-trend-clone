@@ -25,14 +25,14 @@ export function MSWProvider({
 }: Readonly<{
   children: ReactNode;
 }>): ReactNode {
-  const [isMSWReady, setIsMSWReady] = useState(false);
+  // Lazy-init to ready when MSW is disabled so no sync setState is needed in the effect
+  const [isMSWReady, setIsMSWReady] = useState(() => !isMSWEnabled());
 
   useLayoutEffect(() => {
     const enabled = isMSWEnabled();
 
     // Skip if MSW disabled or in SSR context
     if (!enabled || typeof window === "undefined") {
-      setIsMSWReady(true);
       return;
     }
 
@@ -41,7 +41,7 @@ export function MSWProvider({
       .then(async ({ worker }) => {
         try {
           await worker.start({
-            onUnhandledRequest: "bypass", // Non-mocked requests pass through
+            onUnhandledFrame: "bypass", // Non-mocked requests pass through
           });
           setIsMSWReady(true);
         } catch {

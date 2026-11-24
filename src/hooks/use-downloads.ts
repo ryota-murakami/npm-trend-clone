@@ -91,8 +91,7 @@ export function useDownloads(packageNames: string[], timeRange: TimeRange) {
     }
 
     if (!packagesKey) {
-      setData([]);
-      setIsLoading(false);
+      // Empty state is derived at the return site; no fetch needed
       return;
     }
 
@@ -257,5 +256,11 @@ export function useDownloads(packageNames: string[], timeRange: TimeRange) {
     setRefetchCount((c) => c + 1);
   };
 
-  return { data, isLoading, error, invalidPackages, refetch };
+  return {
+    data: packagesKey ? data : [],
+    isLoading: packagesKey ? isLoading : false,
+    error,
+    invalidPackages,
+    refetch,
+  };
 }

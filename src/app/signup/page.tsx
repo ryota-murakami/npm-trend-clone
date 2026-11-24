@@ -3,7 +3,8 @@
 import { useState, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Eye, EyeOff, Github, Check, X } from "lucide-react";
+import { Eye, EyeOff, Check, X } from "lucide-react";
+import { GithubIcon } from "@/components/icons/github-icon";
 import { useAuth } from "@/contexts/auth-context";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";
@@ -474,7 +475,7 @@ export default function SignupPage() {
             onClick={() => handleOAuthSignup("github")}
             disabled={isLoading}
           >
-            <Github className="mr-2 h-4 w-4" />
+            <GithubIcon className="mr-2 h-4 w-4" />
             Continue with GitHub
           </Button>
         </CardContent>
